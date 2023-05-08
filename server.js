@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: "https://real-mern-chat-app.onrender.com/",
+  origin: "https://real-mern-chat-app.onrender.com",
 };
 
 app.use(express.json()); // to accept json data
@@ -59,7 +59,7 @@ const server = app.listen(
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://real-mern-chat-app.onrender.com/",
+    origin: "https://real-mern-chat-app.onrender.com",
     // origin: "http://localhost:3000",
     // credentials: true,
   },
