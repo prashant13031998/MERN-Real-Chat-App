@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: "https://real-mern-chat-app.onrender.com",
+  origin: ["https://real-mern-chat-app.onrender.com", "http://localhost:3000"],
 };
 
 app.use(express.json()); // to accept json data
