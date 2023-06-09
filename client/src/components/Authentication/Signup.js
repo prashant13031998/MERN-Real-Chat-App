@@ -7,6 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router";
 import { ENDPOINT } from "../SingleChat";
+import { ChatState } from "../../Context/ChatProvider";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -20,6 +21,7 @@ const Signup = () => {
   const [password, setPassword] = useState();
   const [pic, setPic] = useState();
   const [picLoading, setPicLoading] = useState(false);
+  const { setUser } = ChatState();
 
   const submitHandler = async () => {
     setPicLoading(true);
@@ -70,7 +72,9 @@ const Signup = () => {
         position: "bottom",
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
+      setUser(data);
       setPicLoading(false);
+
       history.push("/chats");
     } catch (error) {
       toast({
